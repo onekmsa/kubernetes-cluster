@@ -9,7 +9,7 @@ servers = [
         :box_version => "20180831.0.0",
         :eth1 => "192.168.30.200",
         :mem => "2048",
-        :cpu => "2"
+        :cpu => "6"
     },
     {
         :name => "k8s-node-1",
@@ -18,7 +18,7 @@ servers = [
         :box_version => "20180831.0.0",
         :eth1 => "192.168.30.201",
         :mem => "2048",
-        :cpu => "2"
+        :cpu => "6"
     },
     {
         :name => "k8s-node-2",
@@ -27,7 +27,7 @@ servers = [
         :box_version => "20180831.0.0",
         :eth1 => "192.168.30.202",
         :mem => "2048",
-        :cpu => "2"
+        :cpu => "6"
     }
 ]
 
@@ -115,9 +115,8 @@ Vagrant.configure("2") do |config|
             config.vm.network :public_network, ip: opts[:eth1]
 
             config.vm.provider "virtualbox" do |v|
-
                 v.name = opts[:name]
-            	 v.customize ["modifyvm", :id, "--groups", "/Ballerina Development"]
+            	v.customize ["modifyvm", :id, "--groups", "/MSA CoE Development"]
                 v.customize ["modifyvm", :id, "--memory", opts[:mem]]
                 v.customize ["modifyvm", :id, "--cpus", opts[:cpu]]
 
