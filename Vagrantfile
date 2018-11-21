@@ -7,7 +7,7 @@ servers = [
         :type => "master",
         :box => "ubuntu/xenial64",
         :box_version => "20180831.0.0",
-        :eth1 => "192.168.50.200",
+        :eth1 => "192.168.40.200",
         :mem => "12292",
         :cpu => "4"
     },
@@ -16,7 +16,7 @@ servers = [
         :type => "node",
         :box => "ubuntu/xenial64",
         :box_version => "20180831.0.0",
-        :eth1 => "192.168.50.201",
+        :eth1 => "192.168.40.201",
         :mem => "12292",
         :cpu => "4"
     },
@@ -25,7 +25,7 @@ servers = [
         :type => "node",
         :box => "ubuntu/xenial64",
         :box_version => "20180831.0.0",
-        :eth1 => "192.168.50.202",
+        :eth1 => "192.168.40.202",
         :mem => "12292",
         :cpu => "4"
     }
@@ -100,7 +100,7 @@ SCRIPT
 $configureNode = <<-SCRIPT
     echo "This is worker"
     apt-get install -y sshpass
-    sshpass -p "vagrant" scp -o StrictHostKeyChecking=no vagrant@192.168.50.200:/etc/kubeadm_join_cmd.sh .
+    sshpass -p "vagrant" scp -o StrictHostKeyChecking=no vagrant@192.168.40.200:/etc/kubeadm_join_cmd.sh .
     sh ./kubeadm_join_cmd.sh
 SCRIPT
 
@@ -112,8 +112,8 @@ Vagrant.configure("2") do |config|
             config.vm.box = opts[:box]
             config.vm.box_version = opts[:box_version]
             config.vm.hostname = opts[:name]
-            config.vm.network :private_network, ip: opts[:eth1]
-            #config.vm.network :public_network, ip: opts[:eth1]
+            #config.vm.network :private_network, ip: opts[:eth1]
+            config.vm.network :public_network, ip: opts[:eth1]
 
             config.vm.provider "virtualbox" do |v|
                 v.name = opts[:name]
