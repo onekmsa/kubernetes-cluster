@@ -100,7 +100,7 @@ SCRIPT
 $configureNode = <<-SCRIPT
     echo "This is worker"
     apt-get install -y sshpass
-    sshpass -p "vagrant" scp -o StrictHostKeyChecking=no vagrant@192.168.50.200:/etc/kubeadm_join_cmd.sh .
+    sshpass -p "vagrant" scp -P2222 -o StrictHostKeyChecking=no vagrant@211.45.117.26:/etc/kubeadm_join_cmd.sh .
     sh ./kubeadm_join_cmd.sh
 SCRIPT
 
