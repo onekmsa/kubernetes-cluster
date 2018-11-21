@@ -7,8 +7,8 @@ servers = [
         :type => "master",
         :box => "ubuntu/xenial64",
         :box_version => "20180831.0.0",
-        :eth1 => "192.168.30.200",
-        :mem => "2048",
+        :eth1 => "192.168.40.200",
+        :mem => "12292",
         :cpu => "6"
     },
     {
@@ -16,8 +16,8 @@ servers = [
         :type => "node",
         :box => "ubuntu/xenial64",
         :box_version => "20180831.0.0",
-        :eth1 => "192.168.30.201",
-        :mem => "2048",
+        :eth1 => "192.168.40.201",
+        :mem => "12292",
         :cpu => "6"
     },
     {
@@ -25,8 +25,8 @@ servers = [
         :type => "node",
         :box => "ubuntu/xenial64",
         :box_version => "20180831.0.0",
-        :eth1 => "192.168.30.202",
-        :mem => "2048",
+        :eth1 => "192.168.40.202",
+        :mem => "12292",
         :cpu => "6"
     }
 ]
